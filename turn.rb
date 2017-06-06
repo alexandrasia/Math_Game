@@ -1,35 +1,33 @@
 require_relative './player.rb'
+require_relative './game.rb'
 
 class Turn
 
   def initialize(player)
     @player = player
     @user_answer = nil
-    #make random
-    @num1 = 2
-    @num2 = 3
+    @num1 = Random.new.rand(1..20)
+    @num2 = Random.new.rand(1..20)
     @answer = @num1 + @num2
   end
 
-
   def ask_question
-    puts "What does #{@num1} plus #{@num2} equal?"
+    puts "#{@player.name} What does #{@num1} plus #{@num2} equal?"
   end
-
 
   def get_user_answer
     @user_answer = gets.chomp
   end
 
   def evaluate_answer
-    @answer.to_s == @user_answer
+    correct = @answer.to_s == @user_answer
+    if correct == true
+      puts "Correct!"
+    else
+      puts "Wrong!"
+      @player.wrong_answer
+    end
   end
-
-
-  def check_score()
-    if evaluate_answer
-  end
-
 
 end
 

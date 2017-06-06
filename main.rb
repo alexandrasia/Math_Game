@@ -2,5 +2,6 @@ require_relative './game.rb'
 
 
 puts "Welcome to the Math Game"
-g.Game.new
-g.play
+go = Game.new
+go.play
+puts "Goodbye! Thanks for playing the Math Game"

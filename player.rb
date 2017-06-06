@@ -1,6 +1,5 @@
 require_relative './turn.rb'
 
-
 class Player
 
   attr_reader :name, :life
@@ -14,10 +13,9 @@ class Player
     @life -= 1
   end
 
-  def gameover?
+  def game_over?
     @life == 0
   end
-
 end
 
 
